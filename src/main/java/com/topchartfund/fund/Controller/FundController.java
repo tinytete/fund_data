@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/funds")
 @CrossOrigin(origins = "http://localhost:4200") // อนุญาตให้ Angular เข้ามา
 public class FundController {
 
     @Autowired
     private FundService fundService;
 
-    @GetMapping("/funds")
+    @GetMapping("")
     public List<Fund> getAllFunds() {
         return fundService.getAllFunds();
     }
@@ -35,12 +36,12 @@ public class FundController {
         return fundService.searchFunds(name);
     }
 
-    @PostMapping("/funds")
+    @PostMapping("")
     public Fund addFund(@RequestBody Fund fund) {
         return fundService.saveFund(fund);
     }
 
-    @DeleteMapping("/funds/{id}")
+    @DeleteMapping("/{id}")
     public void deleteFund(@PathVariable Integer id) {
         fundService.deleteFund(id);
     }
