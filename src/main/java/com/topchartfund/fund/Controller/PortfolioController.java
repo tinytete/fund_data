@@ -94,7 +94,7 @@ public class PortfolioController {
     @PostMapping("/sell")
     public Portfolio sellFund(@RequestBody SellRequest request) {
 
-        Portfolio portfolio = portfolioRepository.findById(request.getFundId())
+        Portfolio portfolio = portfolioRepository.findByFundId(request.getFundId())
                 .orElseThrow(() -> new RuntimeException("Fund not found in portfolio"));
 
         if (portfolio.getUnits() < request.getUnits()) {
@@ -102,6 +102,7 @@ public class PortfolioController {
         }
 
         Fund fund = fundRepository.findById(request.getFundId()).orElse(null);
+
         Double currentNav = (fund != null)?fund.getNav(): portfolio.getNav();
         Double remainingUnits = (portfolio.getUnits() - request.getUnits());
         Double amountReceived = request.getUnits() * currentNav;

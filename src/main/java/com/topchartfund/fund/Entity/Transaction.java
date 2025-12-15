@@ -2,7 +2,6 @@ package com.topchartfund.fund.Entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
@@ -25,9 +24,9 @@ public class Transaction {
     @JsonProperty("Transaction")
     private Date transactionDate;
 
-    public Transaction(String fundName, String sEll, Double amountReceived, Date date) {}
+    public Transaction() {}
 
-    public Transaction(Integer id, String fundName, String type, Double amount, Date transactionDate) {
+    public Transaction(String fundName, String type, Double amount, Date transactionDate) {
         this.fundName = fundName;
         this.type = type;
         this.amount = amount;
