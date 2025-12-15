@@ -7,6 +7,7 @@ import java.util.Date;
 @Entity
 @Table(name = "transaction")
 public class Transaction {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("Id")
@@ -21,7 +22,7 @@ public class Transaction {
     @JsonProperty("Amount")
     private Double amount;
 
-    @JsonProperty("Transaction")
+    @JsonProperty("TransactionDate")
     private Date transactionDate;
 
     public Transaction() {}

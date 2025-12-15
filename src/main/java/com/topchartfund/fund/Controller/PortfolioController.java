@@ -112,7 +112,7 @@ public class PortfolioController {
         portfolio.setTotalValue(portfolio.getUnits() * currentNav);
         portfolio.setLastUpdate(new Date());
 
-        Transaction trans = new Transaction(portfolio.getFundName(),"SEll",amountReceived,new Date());
+        Transaction trans = new Transaction(portfolio.getFundName(),"SELL",amountReceived,new Date());
         transactionRepository.save(trans);
 
         return portfolioRepository.save(portfolio);
