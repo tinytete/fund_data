@@ -13,8 +13,7 @@ public class Portfolio {
     @JsonProperty("Id")
     private Integer id;
 
-    @JsonProperty("FundId")
-    private Integer fundId;
+
 
     @JsonProperty("FundName")
     private String fundName;
