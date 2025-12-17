@@ -24,8 +24,20 @@ public class Fund {
     @JsonProperty("Ranking")
     private Integer ranking;
 
+    @JsonProperty("Return1D")
+    private Double return1D;
+
+    @JsonProperty("Return1M")
+    private Double return1M;
+
+    @JsonProperty("Return1Y")
+    private Double return1Y;
+
     @JsonProperty("Return3Y")
     private Double return3Y;
+
+    @JsonProperty("Return5Y")
+    private Double return5Y;
 
     @JsonProperty("Lastrank")
     private Integer lastrank;
@@ -44,104 +56,138 @@ public class Fund {
 
     public Fund() {}
 
-    public Fund(String fundName, Double nav, String company, Integer ranking, Double return3Y, Integer lastrank, String category, String aum, String registerDate, String riskLevel) {
-        this.fundName = fundName;
-        this.nav = nav;
-        this.company = company;
-        this.ranking = ranking;
-        this.return3Y = return3Y;
-        this.lastrank = lastrank;
-        this.category = category;
-        this.aum = aum;
-        this.registerDate = registerDate;
-        this.riskLevel = riskLevel;
-    }
-
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public Fund setId(int id) {
         this.id = id;
+        return this;
     }
 
     public String getFundName() {
         return fundName;
     }
 
-    public void setFundName(String fundName) {
+    public Fund setFundName(String fundName) {
         this.fundName = fundName;
+        return this;
     }
 
     public Double getNav() {
         return nav;
     }
 
-    public void setNav(Double nav) {
+    public Fund setNav(Double nav) {
         this.nav = nav;
+        return this;
     }
 
     public String getCompany() {
         return company;
     }
 
-    public void setCompany(String company) {
+    public Fund setCompany(String company) {
         this.company = company;
+        return this;
     }
 
     public Integer getRanking() {
         return ranking;
     }
 
-    public void setRanking(Integer ranking) {
+    public Fund setRanking(Integer ranking) {
         this.ranking = ranking;
+        return this;
+    }
+
+    public Double getReturn1D() {
+        return return1D;
+    }
+
+    public Fund setReturn1D(Double return1D) {
+        this.return1D = return1D;
+        return this;
+    }
+
+    public Double getReturn1M() {
+        return return1M;
+    }
+
+    public Fund setReturn1M(Double return1M) {
+        this.return1M = return1M;
+        return this;
+    }
+
+    public Double getReturn1Y() {
+        return return1Y;
+    }
+
+    public Fund setReturn1Y(Double return1Y) {
+        this.return1Y = return1Y;
+        return this;
     }
 
     public Double getReturn3Y() {
         return return3Y;
     }
 
-    public void setReturn3Y(Double return3Y) {
+    public Fund setReturn3Y(Double return3Y) {
         this.return3Y = return3Y;
+        return this;
+    }
+
+    public Double getReturn5Y() {
+        return return5Y;
+    }
+
+    public Fund setReturn5Y(Double return5Y) {
+        this.return5Y = return5Y;
+        return this;
     }
 
     public Integer getLastrank() {
         return lastrank;
     }
 
-    public void setLastrank(Integer lastrank) {
+    public Fund setLastrank(Integer lastrank) {
         this.lastrank = lastrank;
+        return this;
     }
 
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public Fund setCategory(String category) {
         this.category = category;
+        return this;
     }
 
     public String getAum() {
         return aum;
     }
 
-    public void setAum(String aum) {
+    public Fund setAum(String aum) {
         this.aum = aum;
+        return this;
     }
 
     public String getRegisterDate() {
         return registerDate;
     }
 
-    public void setRegisterDate(String registerDate) {
+    public Fund setRegisterDate(String registerDate) {
         this.registerDate = registerDate;
+        return this;
     }
 
     public String getRiskLevel() {
         return riskLevel;
     }
 
-    public void setRiskLevel(String riskLevel) {
+    public Fund setRiskLevel(String riskLevel) {
         this.riskLevel = riskLevel;
+        return this;
     }
 }

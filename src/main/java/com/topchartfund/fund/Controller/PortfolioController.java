@@ -43,6 +43,8 @@ public class PortfolioController {
                 .orElseThrow(() -> new RuntimeException("Fund not found"));
 
         Double unitsToAdd = request.getAmount() / fund.getNav();
+        Double fee = request.getAmount() * 0.01;
+        Double netPaid = request.getAmount()+fee;
 
         Optional<Portfolio> existing = portfolioRepository.findByFundId(fund.getId());
         Portfolio portfolio;
@@ -62,7 +64,7 @@ public class PortfolioController {
         portfolio.setTotalValue(portfolio.getUnits() * fund.getNav());
         portfolio.setLastUpdate(new Date());
 
-        Transaction trans = new Transaction(fund.getFundName(),"BUY", request.getAmount(),new Date());
+        Transaction trans = new Transaction(fund.getFundName(),"BUY", netPaid, new Date());
         transactionRepository.save(trans);
 
         return portfolioRepository.save(portfolio);
@@ -105,14 +107,16 @@ public class PortfolioController {
 
         Double currentNav = (fund != null)?fund.getNav(): portfolio.getNav();
         Double remainingUnits = (portfolio.getUnits() - request.getUnits());
-        Double amountReceived = request.getUnits() * currentNav;
+        Double grossAmount = request.getUnits() * currentNav;
+        Double fee = grossAmount * 0.02;
+        Double netReceived = grossAmount - fee;
 
         portfolio.setUnits(remainingUnits);
         portfolio.setNav(currentNav);
         portfolio.setTotalValue(portfolio.getUnits() * currentNav);
         portfolio.setLastUpdate(new Date());
 
-        Transaction trans = new Transaction(portfolio.getFundName(),"SELL",amountReceived,new Date());
+        Transaction trans = new Transaction(portfolio.getFundName(),"SELL", netReceived,new Date());
         transactionRepository.save(trans);
 
         return portfolioRepository.save(portfolio);
