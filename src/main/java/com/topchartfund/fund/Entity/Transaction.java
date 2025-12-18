@@ -19,6 +19,9 @@ public class Transaction {
     @JsonProperty("Type")
     private String type;
 
+    @JsonProperty("NAV")
+    private Double nav;
+
     @JsonProperty("Amount")
     private Double amount;
 
@@ -30,6 +33,7 @@ public class Transaction {
     public Transaction(String fundName, String type, Double amount, Date transactionDate) {
         this.fundName = fundName;
         this.type = type;
+        this.nav = nav;
         this.amount = amount;
         this.transactionDate = transactionDate;
     }
@@ -58,6 +62,15 @@ public class Transaction {
 
     public Transaction setType(String type) {
         this.type = type;
+        return this;
+    }
+
+    public Double getNav() {
+        return nav;
+    }
+
+    public Transaction setNav(Double nav) {
+        this.nav = nav;
         return this;
     }
 
