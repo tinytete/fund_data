@@ -29,7 +29,7 @@ public class FundHistory {
 
     public FundHistory(int fundId, Date navData, Double nav) {
         this.fundId = fundId;
-        this.navDate = navDate;
+
         this.nav = nav;
     }
 
